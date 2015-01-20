@@ -332,6 +332,13 @@ _.uniq = function (array) {
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+    var seen = {};
+    return function(key) {
+    if (!(key in seen)) {
+        seen[key] = func.apply(null, arguments);
+    }
+    return seen[key];
+    }
   };
 
   // Delays a function for the given number of milliseconds, and then calls
