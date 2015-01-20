@@ -368,7 +368,7 @@ _.uniq = function (array) {
   _.shuffle = function(array) {
     var newArr = array.slice(0, array.length);
     for (var i = array.length-1; i > 0; i--) {
-    var randomIndex = Math.floor(Math.random()*(i+1));
+    var randomIndex = Math.floor(Math.random()*i);
     var indexItem = newArr[randomIndex];
 
     newArr[randomIndex] = newArr[i];
